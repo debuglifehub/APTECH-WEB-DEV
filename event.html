@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>  
+  <meta charset="UTF-8">  <!-- Character encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Makes the page responsive on phones and tablets -->
+  <title>EVENT</title>  <!-- Browser tab title -->
+
+</head>
+
+<body>
+  <form action="">
+
+    <h3>My form</h3>
+
+    <!--
+      placeholder="Name"
+      Displays "Name" inside the textbox until the user types. -->
+
+    <!--
+      onfocus
+      Fires when the user clicks or tabs into the textbox.
+      showStyle(this)
+
+      "this" refers to THIS input element.
+      The browser automatically calls:
+      showStyle(inputElement);
+      and sends the input into the function.
+    -->
+
+    <!--
+      onblur
+      Fires when the textbox loses focus.
+      Again, "this" is the current input element.
+      Browser calls:
+      hideStyle(inputElement);
+    -->
+
+    <!--
+      onselect
+      Fires when the user highlights (selects) text
+      inside the textbox.
+      Browser calls:       setFontStyle(inputElement);
+    -->
+
+    <input
+      placeholder="Name"
+      onselect="setFontStyle(this)"
+      onblur="hideStyle(this)"
+      onfocus="showStyle(this)"
+    />
+
+
+
+    <!--
+      When this button is clicked,
+      the onclick event fires.
+      "this" now refers to the BUTTON, not the textbox.
+      Browser automatically calls:
+      showMessage(buttonElement);
+    -->
+
+    <button onclick="showMessage(this)">
+      I love you
+    </button>
+
+
+
+    <script>
+
+      /*
+      Receives the element passed from HTML.
+      In this example:
+      elem = input element
+      because HTML called
+      setFontStyle(this)
+      where "this" is the input.
+      */
+
+      function setFontStyle(elem) {
+        elem.style.fontFamily = "Arial";        // Change the font family
+        elem.style.fontWeight = "bold";        // Make the text bold
+
+      }
+
+
+
+      /*
+      Called when the input loses focus.
+      HTML:
+      onblur="hideStyle(this)"
+      Browser automatically does:
+      hideStyle(inputElement);
+      */
+
+      function hideStyle(elem) {
+        elem.style.backgroundColor = "#ffffff";        // Change the background back to white
+
+      }
+
+
+
+      /*
+      Called when the input gains focus.
+      HTML:onfocus="showStyle(this)"   Browser automatically does: showStyle(inputElement);
+      */
+
+      function showStyle(elem) {
+
+        // Change the background to light yellow
+        elem.style.backgroundColor = "#ffffcc";
+      }
+
+
+
+      /*
+      HTML:
+      <button onclick="showMessage(this)">
+      Here,
+      "this" is the button.
+      Browser automatically does: showMessage(buttonElement);
+      */
+
+      function showMessage(elem) {
+        elem.style.backgroundColor = "#ffffcc";        // Change ONLY the clicked button's background color
+
+      }
+
+    </script>
+
+  </form>
+
+</body>
+
+</html>

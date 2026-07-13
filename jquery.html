@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+  <h2>Jquery Explained</h2>
+  <div id="myid">$() is the Main jQuery function</div>  <!-- First div with a unique id -->
+  <div id="mydiv">jQuery should only run when the document is fully loaded</div>  <!-- Second div with a unique id -->
+  <button>Click to toggle</button>  <!-- Button that will hide/show the heading -->
+
+  <script>
+
+    /*
+      $(document).ready()
+      Wait until the entire HTML page has loaded before
+      executing any jQuery code.
+
+      This prevents errors that occur when JavaScript
+      tries to access elements that haven't been created yet.
+    */
+    $(document).ready(function () {
+
+      /*
+        BUTTON CLICK EVENT
+        $('button') selects the button.
+        .click() attaches a click event.
+
+        When the button is clicked,
+        the <h2> heading fades in and out.
+      */
+      $('button').click(function () {
+        $('h2').fadeToggle('slow');
+      });
+
+
+      /*
+        DOUBLE CLICK EVENT
+        Select the element with id="mydiv".
+
+        When it is double-clicked,
+        print a message in the browser console.
+      */
+      $('#mydiv').dblclick(function () {
+        console.log("Double clicked!");
+      });
+
+
+      /*
+        CSS()
+        Change ONE CSS property.
+        Makes the text color white.
+      */
+      $('#mydiv').css("color", "white");
+
+
+      /*
+        CSS()
+        Change MULTIPLE CSS properties at once.
+
+        backgroundColor -> red
+        fontSize -> 20px
+      */
+      $('#mydiv').css({
+        backgroundColor: "red",
+        fontSize: "20px"
+      });
+
+
+      /*
+        HTML()
+        Replaces the HTML inside EVERY div.
+
+        Because html() understands HTML tags,
+        <h3> becomes an actual heading.
+      */
+      $('div').html("<h3>jQuery is a library to ease development</h3>");
+
+
+      /*
+        TEXT()
+        Replaces the text inside EVERY div.
+        Unlike html(), HTML tags are NOT interpreted.
+        The browser displays:
+        <h3>jQuery is a library to ease development</h3>
+        as plain text.
+      */
+      $('div').text("<h3>jQuery is a library to ease development</h3>");
+
+
+      /*
+        $('div') returns all matching div elements.
+        [0] selects the FIRST div
+        (just like accessing the first element of an array).
+        innerText changes only that first div.
+        Again, HTML tags are treated as plain text.
+      */
+      $('div')[0].innerText = "<h3>jQuery is a library to ease development</h3>";
+
+    });
+
+  </script>
+
+</body>
+
+</html>
+
+
+<!-- $() → The main jQuery function used to select HTML elements.
+$(document).ready() → Wait until the page is fully loaded.
+$('button') → Selects all <button> elements.
+$('#mydiv') → Selects the element with id="mydiv". (# means ID.)
+$('div') → Selects all <div> elements.
+.click() → Runs code when an element is clicked.
+.dblclick() → Runs code when an element is double-clicked.
+.css() → Changes CSS styles.
+.html() → Reads or writes HTML (tags are interpreted).
+.text() → Reads or writes plain text (tags are shown as text).
+[0] → Gets the first element from the jQuery collection, similar to the first element in an array. -->
