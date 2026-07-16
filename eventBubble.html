@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="div1" style="background-color: red; padding: 20px;">
+    <p id="p1" style="background-color: green; padding: 20px;">This is a Paragraph element</p>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div id="div2" style="background-color: red; padding: 20px;">
+    <p id="p2" style="background-color: green; padding: 20px;">This is a Paragraph element</p>
+  </div>
+
+
+  <script>
+    document.getElementById('div1').addEventListener('click', function () {
+      alert("DIV CLICKED")
+    })
+
+    document.getElementById('p1').addEventListener('click', function () {
+      alert("Paragraph Element Clicked")
+    })
+
+    document.getElementById('div2').addEventListener('click', function () {
+      alert("DIV CLICKED")
+    }, true)
+
+    document.getElementById('p2').addEventListener('click', function () {
+      alert("Paragraph Element Clicked")
+    }, true)
+  </script>
+</body>
+
+<!-- true = Event Capturing
+The event moves from the parent down to the target element.
+
+true = Event Capturing
+Since both listeners use true,
+clicking the paragraph will trigger:
+
+1. DIV CLICKED
+2. Paragraph clicked
+
+
+false = Event Bubbling (Default)
+The event starts from the clicked element
+and bubbles up to its parent.
+false = Event Bubbling (Default)
+Since both listeners use false,
+clicking the paragraph will trigger:
+
+1. Paragraph clicked
+2. DIV CLICKED
+
+If this parameter is omitted,
+JavaScript automatically uses false. -->
+
+</html>
+
+

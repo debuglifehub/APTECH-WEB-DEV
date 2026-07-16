@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>Web Storage</h2>
+  <p>This is a Paragraph</p>
+  <div> </div>
+  <article> </article>
+
+  <script>
+
+    // Check if the browser supports Web Storage.
+    // typeof(Storage) returns "undefined" if the browser does not support it.
+    if (typeof (Storage) !== "undefined") {
+
+      // Session Storage:
+      // Data retention only for the span of a session.
+      // The data is automatically removed when the browser tab/window is closed.
+
+      // Store a key-value pair using setItem(key, value).
+      sessionStorage.setItem('name', 'samuel')
+
+      // Another way of storing data using property notation.
+      sessionStorage['email'] = 'samuel@gmail.com'
+
+
+      // RETRIEVE DATA
+      // getItem('name') retrieves the value stored with the key "name".
+      // sessionStorage['email'] retrieves the value stored with the key "email".
+      document.write(`Name: ${sessionStorage.getItem('name')} <br> Email: ${sessionStorage['email']} <br>`)
+
+
+      // NUMBER OF SESSION ITEMS
+      // .length returns the total number of key-value pairs
+      // currently stored in Session Storage.
+      document.write(`How Many items in session Storage ${sessionStorage.length} <br>`)
+
+
+      // DELETE ITEM
+      // removeItem(key) removes only the specified item.
+      sessionStorage.removeItem('name')
+
+      // .clear() removes ALL items from Session Storage.
+      //.clear(): clears out everything from the session storage
+
+
+      // LOCAL STORAGE:
+      // Persisted across multiple sessions/visits from the user.
+      // Data remains even after closing the browser until removed manually.
+
+      // Store data
+      localStorage.setItem('name', 'Wisdom')
+
+      // Another way of storing data
+      localStorage['email'] = 'ajahwisdomagaba@gmail.com'
+
+
+      // RETRIEVE DATA
+      // Retrieve values stored in Local Storage.
+      document.write(`<br> Name: ${localStorage.getItem('name')} <br> Email: ${localStorage['email']}, <br>`)
+
+
+      // NUMBER OF LOCAL STORAGE ITEMS
+      // .length returns the total number of key-value pairs
+      // currently stored in Local Storage.
+      document.write('How many items in Local Storage:', localStorage.length, '<br>')
+
+
+      // DELETE ITEM
+      // Removes only the specified key-value pair.
+      localStorage.removeItem('name')
+
+      // .clear() removes every item stored in Local Storage.
+      //. clear(): clears out everything from the session storage
+
+
+      // DISPLAY SUCCESS MESSAGE
+      // Select the <article> element
+      // and insert HTML content into it.
+      document.querySelector('articl').innerHTML = "<h3>Browser Supports Web Storage</h3>"
+
+    } else {
+
+      // Executes only if the browser does not support Web Storage.
+      // Replace the paragraph's content with an error message.
+      document.querySelector('p').innerHTML = "Browser doesn't support web storage <br>"
+
+    }
+
+  </script>
+</body>
+
+</html>
